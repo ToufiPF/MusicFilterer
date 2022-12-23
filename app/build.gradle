@@ -45,11 +45,11 @@ android {
     }
 
     kotlinOptions {
-        jvmTarget = '1.8'
+        jvmTarget = '11'
     }
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
 
         coreLibraryDesugaringEnabled = true
     }
@@ -61,7 +61,7 @@ android {
         }
     }
     packagingOptions {
-        // Solve error in task :app:mergeDebugAndroidTestJavaResource
+        // Solve error in task :app:mergeDebugAndroidTestJavaResource (caused by junit.jupiter)
         resources.excludes.add("META-INF/*.md")
     }
 }
@@ -72,8 +72,13 @@ dependencies {
     implementation 'com.google.android.material:material:1.7.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
 
-    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.5.1'
-    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1'
+    // Lifecycle, Coroutines, LiveData...
+    def lifecycle_version = '2.5.1'
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
+    implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle_version"
+
+    // Preferences (Compat)
+    implementation "androidx.preference:preference-ktx:1.2.0"
 
     // Hilt (dependency injection)
     implementation "com.google.dagger:hilt-android:$hilt_version"
@@ -89,6 +94,8 @@ dependencies {
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.4'
 
+    // Espresso 3.4.0 is buggy (java.lang.NoSuchMethodError: No static method loadSingleServiceOrNull) -> onView()
+    // Espresso 3.5.0 is buggy (test hangs)
     def espresso_version = "3.3.0"
     androidTestImplementation "androidx.test.espresso:espresso-core:$espresso_version"
     androidTestImplementation "androidx.test.espresso:espresso-contrib:$espresso_version"
