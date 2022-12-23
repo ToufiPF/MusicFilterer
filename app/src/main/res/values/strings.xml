@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">MusicFilterer</string>
+
+    <string name="previous">Previous</string>
+    <string name="play">Play</string>
+    <string name="pause">Pause</string>
+    <string name="next">Next</string>
+    <string name="delete">Delete</string>
+
+    <string name="description_play_pause">Play/Pause</string>
+    <string name="description_show_playlist">Show playlist</string>
 </resources>

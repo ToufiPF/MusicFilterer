@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="bottom_bar_icon_size">32dp</dimen>
+    <dimen name="bottom_bar_icon_padding">2dp</dimen>
+
+    <dimen name="bottom_bar_music_name_text_size">18sp</dimen>
+    <dimen name="bottom_bar_music_artist_text_size">16sp</dimen>
+    <dimen name="bottom_bar_music_album_text_size">16sp</dimen>
+
+</resources>
