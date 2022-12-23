@@ -1,0 +1,103 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+    id 'kotlin-parcelize'
+    id 'com.google.dagger.hilt.android'
+
+    // should be last to mute 'following options were not recognized by any processor'
+    id 'kotlin-kapt'
+}
+
+android {
+    namespace 'ch.epfl.musicfilterer'
+    compileSdk 33
+
+    defaultConfig {
+        applicationId "ch.epfl.musicfilterer"
+        minSdk 23
+        targetSdk 33
+        versionCode 1
+        versionName "1.0"
+
+        multiDexEnabled = true
+        testInstrumentationRunner "ch.epfl.musicfilterer.HiltTestRunner"
+        //testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            applicationIdSuffix '.debug'
+            versionNameSuffix "-debug"
+
+            minifyEnabled false
+            debuggable true
+            testCoverageEnabled true
+        }
+    }
+
+    buildFeatures {
+        viewBinding true
+        dataBinding false
+    }
+
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+
+        coreLibraryDesugaringEnabled = true
+    }
+    testOptions {
+        animationsDisabled = true
+        unitTests {
+            includeAndroidResources = true
+            returnDefaultValues = true
+        }
+    }
+    packagingOptions {
+        // Solve error in task :app:mergeDebugAndroidTestJavaResource
+        resources.excludes.add("META-INF/*.md")
+    }
+}
+
+dependencies {
+    implementation 'androidx.core:core-ktx:1.9.0'
+    implementation 'androidx.appcompat:appcompat:1.5.1'
+    implementation 'com.google.android.material:material:1.7.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+
+    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.5.1'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1'
+
+    // Hilt (dependency injection)
+    implementation "com.google.dagger:hilt-android:$hilt_version"
+    debugImplementation "com.google.dagger:hilt-android-testing:$hilt_version"
+    kapt "com.google.dagger:hilt-android-compiler:$hilt_version"
+    kaptAndroidTest "com.google.dagger:hilt-android-compiler:$hilt_version"
+
+    // TODO: Update to 2.0.0 when AGP 7.4.0 is released/supported (+ jvmTarget 11 required)
+    //noinspection GradleDependency
+    coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:1.1.6'
+
+    // Testing
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.4'
+
+    def espresso_version = "3.3.0"
+    androidTestImplementation "androidx.test.espresso:espresso-core:$espresso_version"
+    androidTestImplementation "androidx.test.espresso:espresso-contrib:$espresso_version"
+    androidTestImplementation "androidx.test.espresso:espresso-intents:$espresso_version"
+
+    // Mockk
+    testImplementation 'io.mockk:mockk:1.13.3'
+    androidTestImplementation 'io.mockk:mockk-android:1.13.3'
+
+    // UiAutomator: manage device (eg. navigate outside of app, display notifications...)
+    androidTestImplementation 'androidx.test.uiautomator:uiautomator:2.2.0'
+}
