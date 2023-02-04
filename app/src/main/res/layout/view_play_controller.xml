@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/play_controller_previous"
+        android:layout_width="@dimen/play_controller_default_icon_size"
+        android:layout_height="@dimen/play_controller_default_icon_size"
+        android:contentDescription="@string/previous"
+        android:padding="@dimen/play_controller_default_icon_padding"
+        android:src="@drawable/skip_previous"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/play_controller_play_pause"
+        android:layout_width="@dimen/play_controller_default_icon_size"
+        android:layout_height="@dimen/play_controller_default_icon_size"
+        android:contentDescription="@string/description_play_pause"
+        android:padding="@dimen/play_controller_default_icon_padding"
+        android:src="@drawable/play"
+        app:layout_constraintBottom_toBottomOf="@id/play_controller_previous"
+        app:layout_constraintStart_toEndOf="@id/play_controller_previous"
+        app:layout_constraintTop_toTopOf="@id/play_controller_previous" />
+
+    <ImageView
+        android:id="@+id/play_controller_next"
+        android:layout_width="@dimen/play_controller_default_icon_size"
+        android:layout_height="@dimen/play_controller_default_icon_size"
+        android:contentDescription="@string/next"
+        android:padding="@dimen/play_controller_default_icon_padding"
+        android:src="@drawable/skip_next"
+        app:layout_constraintBottom_toBottomOf="@id/play_controller_previous"
+        app:layout_constraintStart_toEndOf="@id/play_controller_play_pause"
+        app:layout_constraintTop_toTopOf="@id/play_controller_previous" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

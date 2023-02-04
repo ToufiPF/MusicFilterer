@@ -69,13 +69,15 @@ android {
 dependencies {
     implementation 'androidx.core:core-ktx:1.9.0'
     implementation 'androidx.appcompat:appcompat:1.5.1'
+    implementation "androidx.fragment:fragment-ktx:1.5.5"
     implementation 'com.google.android.material:material:1.7.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
 
     // Lifecycle, Coroutines, LiveData...
     def lifecycle_version = '2.5.1'
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version"
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
-    implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle_version"
+    implementation "androidx.lifecycle:lifecycle-common-java8:$lifecycle_version"
 
     // Preferences (Compat)
     implementation "androidx.preference:preference-ktx:1.2.0"
@@ -90,6 +92,9 @@ dependencies {
     //noinspection GradleDependency
     coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:1.1.6'
 
+    // Faker (fake data generation)
+    debugImplementation 'io.github.serpro69:kotlin-faker:1.13.0'
+    
     // Testing
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.4'
@@ -100,6 +105,10 @@ dependencies {
     androidTestImplementation "androidx.test.espresso:espresso-core:$espresso_version"
     androidTestImplementation "androidx.test.espresso:espresso-contrib:$espresso_version"
     androidTestImplementation "androidx.test.espresso:espresso-intents:$espresso_version"
+
+    // Test lifecycle stuff in regular tests
+    testImplementation "androidx.arch.core:core-testing:2.1.0"
+    testImplementation "androidx.lifecycle:lifecycle-runtime-testing:$lifecycle_version"
 
     // Mockk
     testImplementation 'io.mockk:mockk:1.13.3'

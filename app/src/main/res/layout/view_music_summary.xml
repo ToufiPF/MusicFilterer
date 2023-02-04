@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/music_summary_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:ellipsize="marquee"
+        android:marqueeRepeatLimit="marquee_forever"
+        android:maxLines="1"
+        android:scrollHorizontally="true"
+        android:text="Potentially very long MUSIC name that should scroll automatically"
+        android:textSize="@dimen/bottom_bar_music_name_text_size"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="HardcodedText" />
+
+    <TextView
+        android:id="@+id/music_summary_artist"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:ellipsize="marquee"
+        android:marqueeRepeatLimit="marquee_forever"
+        android:maxLines="1"
+        android:scrollHorizontally="true"
+        android:text="Potentially very long ARTIST name that should scroll automatically"
+        android:textSize="@dimen/bottom_bar_music_artist_text_size"
+        app:layout_constraintEnd_toEndOf="@id/music_summary_name"
+        app:layout_constraintStart_toStartOf="@id/music_summary_name"
+        app:layout_constraintTop_toBottomOf="@id/music_summary_name"
+        tools:ignore="HardcodedText" />
+
+    <TextView
+        android:id="@+id/music_summary_album"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:ellipsize="marquee"
+        android:marqueeRepeatLimit="marquee_forever"
+        android:maxLines="1"
+        android:scrollHorizontally="true"
+        android:text="Potentially very long ALBUM name that should scroll automatically"
+        android:textSize="@dimen/bottom_bar_music_album_text_size"
+        app:layout_constraintEnd_toEndOf="@id/music_summary_name"
+        app:layout_constraintStart_toStartOf="@id/music_summary_name"
+        app:layout_constraintTop_toBottomOf="@id/music_summary_artist"
+        tools:ignore="HardcodedText" />
+</androidx.constraintlayout.widget.ConstraintLayout>

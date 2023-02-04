@@ -9,4 +9,5 @@
 
     <string name="description_play_pause">Play/Pause</string>
     <string name="description_show_playlist">Show playlist</string>
+    <string name="description_playlist_drag_drop">Drag to reorder</string>
 </resources>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingHorizontal="@dimen/small_margin"
+    android:paddingVertical="@dimen/mini_margin">
+
+    <TextView
+        android:id="@+id/playlist_item_music_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Song name"
+        android:textSize="@dimen/bottom_bar_music_name_text_size"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="HardcodedText" />
+
+    <TextView
+        android:id="@+id/playlist_item_artist_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Artist name"
+        android:textSize="@dimen/bottom_bar_music_artist_text_size"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/playlist_item_music_name"
+        tools:ignore="HardcodedText" />
+
+    <ImageView
+        android:id="@+id/playlist_item_drag_drop"
+        android:layout_width="@dimen/playlist_item_drag_drop_icon_size"
+        android:layout_height="@dimen/playlist_item_drag_drop_icon_size"
+        android:contentDescription="@string/description_playlist_drag_drop"
+        android:src="@drawable/more_vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

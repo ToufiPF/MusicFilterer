@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ch.epfl.musicfilterer.ui.view.PlayControllerView
+        android:id="@+id/bottom_bar_controller"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/default_margin"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        custom:iconSize="@dimen/bottom_bar_medium_icon_size" />
+
+    <ImageView
+        android:id="@+id/bottom_bar_delete"
+        android:layout_width="@dimen/bottom_bar_medium_icon_size"
+        android:layout_height="@dimen/bottom_bar_medium_icon_size"
+        android:contentDescription="@string/delete"
+        android:padding="@dimen/bottom_bar_medium_icon_padding"
+        android:src="@drawable/delete"
+        app:layout_constraintBottom_toBottomOf="@id/bottom_bar_controller"
+        app:layout_constraintEnd_toStartOf="@id/bottom_bar_playlist"
+        app:layout_constraintHorizontal_bias="0.8"
+        app:layout_constraintStart_toEndOf="@id/bottom_bar_controller"
+        app:layout_constraintTop_toTopOf="@id/bottom_bar_controller" />
+
+    <ImageView
+        android:id="@+id/bottom_bar_playlist"
+        android:layout_width="@dimen/bottom_bar_medium_icon_size"
+        android:layout_height="@dimen/bottom_bar_medium_icon_size"
+        android:layout_marginEnd="@dimen/small_margin"
+        android:contentDescription="@string/description_show_playlist"
+        android:padding="@dimen/bottom_bar_medium_icon_padding"
+        android:src="@drawable/playlist_play"
+        app:layout_constraintBottom_toBottomOf="@id/bottom_bar_delete"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/bottom_bar_delete" />
+
+    <ch.epfl.musicfilterer.ui.view.MusicSummaryView
+        android:id="@+id/bottom_bar_summary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/bottom_bar_controller" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

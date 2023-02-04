@@ -1,4 +1,4 @@
-package ch.epfl.musicfilterer.constants
+package ch.epfl.musicfilterer.util
 
 object ArgumentNames {
 
